@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon app.js",
     "build": "babel api_src -d . --copy-files",
-    "devbuild": "npm run build && nodemon ./api_server.js",
-    "dev": "nodemon --watch api_src --exec npm run devbuild",
+    "production": "npm run build && nodemon ./api_server.js",
+    "dev": "nodemon --watch api_src --exec npm run production",
     "clean": "npm cache clean --force"
   },
   "author": "adithyamandody",
