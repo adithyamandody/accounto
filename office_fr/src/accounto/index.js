@@ -70,7 +70,8 @@ class Login extends React.Component {
                 this.setState({ error: null });
                 setUserSession(response.data.token);
                 // navigate('/dashboard');
-                this.props.history.push('/');
+                // this.props.history.push('/');
+                window.location.reload();
               })
               .catch((error) => {
                 this.setState({ error: 'invalid login' });
