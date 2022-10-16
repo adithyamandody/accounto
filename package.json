@@ -1,0 +1,32 @@
+{
+  "name": "accounto",
+  "version": "0.0.1",
+  "description": "an accounting app for lpg gas agency",
+  "main": "api_server.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "build": "babel api_src -d . --copy-files",
+    "devbuild": "npm run build && nodemon ./api_server.js",
+    "dev": "nodemon --watch api_src --exec npm run devbuild",
+    "clean":"npm cache clean --force"
+  },
+  "author": "adithyamandody",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.1",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^2.0.20"
+   
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.17",
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "nodemon": "^2.0.20"
+  }
+}
