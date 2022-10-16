@@ -8,16 +8,21 @@ import mongoose from 'mongoose';
 
 import API_Router from './api';
 
+dotenv.config();
 const port = 8001;
 
+
 const app = express();
-dotenv.config();
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.json());
-app.use(cors);
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/app/', express.static(path.join(__dirname, '/office_fr/build')));
+
 app.use('/_api', API_Router);
+
+
 app.get('/app/*', (req, res) => {
   res.sendFile(path.join(__dirname, '/office_fr/build/index.html'));
 });

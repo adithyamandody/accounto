@@ -9,14 +9,14 @@ var _dotenv = _interopRequireDefault(require("dotenv"));
 var _mongoose = _interopRequireDefault(require("mongoose"));
 var _api = _interopRequireDefault(require("./api"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+_dotenv.default.config();
 var port = 8001;
 var app = (0, _express.default)();
-_dotenv.default.config();
+app.use(_express.default.json());
+app.use((0, _cors.default)());
 app.use(_bodyParser.default.urlencoded({
   extended: true
 }));
-app.use(_express.default.json());
-app.use(_cors.default);
 app.use('/app/', _express.default.static(_path.default.join(__dirname, '/office_fr/build')));
 app.use('/_api', _api.default);
 app.get('/app/*', (req, res) => {
